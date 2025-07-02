@@ -6,6 +6,48 @@
     <title>Happy Birthday, My Love!</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+      <style>
+    .heart {
+      position: fixed;
+      width: 20px;
+      height: 20px;
+      background: red;
+      transform: rotate(45deg);
+      animation: float 6s infinite ease-in;
+      z-index: 9999;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: red;
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -10px;
+      left: 0;
+    }
+
+    .heart::after {
+      left: -10px;
+      top: 0;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0) rotate(45deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-800px) rotate(45deg);
+        opacity: 0;
+      }
+    }
+    </style>
   </head>
   <body class="bg-pink-50 text-gray-800 font-sans">
     <script>
@@ -18,6 +60,19 @@
       });
     }, 1000); // Confetti delay
   };
+</script>
+    <script>
+  function createHeart() {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.background = ["#ff4d6d", "#ff6b81", "#ff9aa2"][Math.floor(Math.random() * 3)];
+    heart.style.animationDuration = 3 + Math.random() * 3 + "s";
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 6000);
+  }
+
+  setInterval(createHeart, 300);
 </script>
     <div class="min-h-screen flex flex-col items-center justify-center p-4">
       <h1 class="text-4xl md:text-6xl font-bold text-pink-600 text-center mb-4">
