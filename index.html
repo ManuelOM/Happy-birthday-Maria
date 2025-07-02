@@ -4,76 +4,90 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Happy Birthday, My Love!</title>
+
+    <!-- TailwindCSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Confetti Script -->
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-      <style>
-    .heart {
-      position: fixed;
-      width: 20px;
-      height: 20px;
-      background: red;
-      transform: rotate(45deg);
-      animation: float 6s infinite ease-in;
-      z-index: 9999;
-    }
 
-    .heart::before,
-    .heart::after {
-      content: "";
-      position: absolute;
-      width: 20px;
-      height: 20px;
-      background: red;
-      border-radius: 50%;
-    }
-
-    .heart::before {
-      top: -10px;
-      left: 0;
-    }
-
-    .heart::after {
-      left: -10px;
-      top: 0;
-    }
-
-    @keyframes float {
-      0% {
-        transform: translateY(0) rotate(45deg);
-        opacity: 1;
+    <!-- Floating Heart Styles -->
+    <style>
+      .heart {
+        position: fixed;
+        width: 20px;
+        height: 20px;
+        background: red;
+        transform: rotate(45deg);
+        animation: float 6s linear infinite;
+        z-index: 9999;
+        opacity: 0.7;
       }
-      100% {
-        transform: translateY(-800px) rotate(45deg);
-        opacity: 0;
+
+      .heart::before,
+      .heart::after {
+        content: "";
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        background: red;
+        border-radius: 50%;
       }
-    }
+
+      .heart::before {
+        top: -10px;
+        left: 0;
+      }
+
+      .heart::after {
+        left: -10px;
+        top: 0;
+      }
+
+      @keyframes float {
+        0% {
+          transform: translateY(0) rotate(45deg);
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(-800px) rotate(45deg);
+          opacity: 0;
+        }
+      }
     </style>
   </head>
-  <body class="bg-pink-50 text-gray-800 font-sans">
-    <script>
-  window.onload = () => {
-    setTimeout(() => {
-      confetti({
-        particleCount: 150,
-        spread: 70,
-        origin: { y: 0.6 }
-      });
-    }, 1000); // Confetti delay
-  };
-</script>
-    <script>
-  function createHeart() {
-    const heart = document.createElement("div");
-    heart.className = "heart";
-    heart.style.left = Math.random() * 100 + "vw";
-    heart.style.background = ["#ff4d6d", "#ff6b81", "#ff9aa2"][Math.floor(Math.random() * 3)];
-    heart.style.animationDuration = 3 + Math.random() * 3 + "s";
-    document.body.appendChild(heart);
-    setTimeout(() => heart.remove(), 6000);
-  }
 
-  setInterval(createHeart, 300);
-</script>
+  <body class="bg-pink-50 text-gray-800 font-sans">
+
+    <!-- 🎉 Confetti on Load -->
+    <script>
+      window.onload = () => {
+        setTimeout(() => {
+          confetti({
+            particleCount: 150,
+            spread: 70,
+            origin: { y: 0.6 }
+          });
+        }, 800);
+      };
+    </script>
+
+    <!-- 💗 Floating Hearts -->
+    <script>
+      function createHeart() {
+        const heart = document.createElement("div");
+        heart.className = "heart";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.background = ["#ff4d6d", "#ff6b81", "#ff9aa2"][Math.floor(Math.random() * 3)];
+        heart.style.animationDuration = 4 + Math.random() * 2 + "s";
+        document.body.appendChild(heart);
+        setTimeout(() => heart.remove(), 7000);
+      }
+
+      setInterval(createHeart, 300);
+    </script>
+
+    <!-- Main Birthday Content -->
     <div class="min-h-screen flex flex-col items-center justify-center p-4">
       <h1 class="text-4xl md:text-6xl font-bold text-pink-600 text-center mb-4">
         Happy Birthday, My Love 💖
@@ -82,7 +96,6 @@
         Today, we celebrate the day heaven smiled and sent an angel to earth—You. Thank you for being the light in my life. I hope this birthday wraps you in joy and all the love your heart can hold.
       </p>
 
-      <!-- Birthday Message / Poem -->
       <div class="bg-white shadow-xl rounded-2xl p-6 md:p-10 mb-8 max-w-2xl">
         <h2 class="text-2xl font-semibold text-pink-500 mb-4">My Letter to You</h2>
         <p class="leading-relaxed">
@@ -91,20 +104,17 @@
         <p class="mt-6 text-right italic text-pink-500">— Emmanuel</p>
       </div>
 
-      <!-- Photo Gallery -->
       <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-10">
-        <img src="https://i.imgur.com/yxz5q4X.jpg" class="rounded-xl shadow-md" />
-        <img src="https://i.imgur.com/iAT4HiV.jpg" class="rounded-xl shadow-md" />
-        <img src="https://i.imgur.com/InL59ws.jpg" class="rounded-xl shadow-md" />
+        <img src="https://i.imgur.com/2Zb7G2Q.jpg" class="rounded-xl shadow-md" />
+        <img src="https://i.imgur.com/XyZ3oBb.jpg" class="rounded-xl shadow-md" />
+        <img src="https://i.imgur.com/H8vOl8v.jpg" class="rounded-xl shadow-md" />
       </div>
 
-      <!-- Music Embed -->
       <div class="mb-10">
         <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/3YRCqOhFifThpSRFJ1VWFM?utm_source=generator" width="100%" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
         <p class="text-sm mt-2 text-center text-gray-600">A song that reminds me of you 🌹</p>
       </div>
 
-      <!-- Final Note -->
       <footer class="text-center text-pink-600 mb-6">
         <p class="text-lg">Here’s to more memories, laughter, and forever with you.</p>
         <p class="mt-2 italic">With all my love,</p>
