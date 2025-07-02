@@ -4,7 +4,6 @@
  <style>
   body {
     background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
-    overflow: hidden;
     color: black;
     font-family: 'Helvetica', sans-serif;
   }
@@ -24,10 +23,11 @@
       900px 300px white,
       1000px 350px white;
     animation: moveStars 200s linear infinite;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: -1;
+    position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  pointer-events: none;
   }
 
   @keyframes moveStars {
