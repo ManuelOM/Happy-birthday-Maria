@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Happy Birthday, My Love!</title>
 
+    <div class="text-center mt-4">
+  <h2 id="typewriter" class="text-xl md:text-2xl text-pink-700 font-medium"></h2>
+</div>
+
+
     <!-- TailwindCSS -->
     <script src="https://cdn.tailwindcss.com"></script>
 
@@ -151,6 +156,22 @@
     message.classList.remove('hidden');
     blowSound.play();
   });
+</script>
+
+<script>
+  const message = "I wrote this just for you... Because you’re the most beautiful chapter of my life.";
+  const target = document.getElementById("typewriter");
+  let index = 0;
+
+  function typeChar() {
+    if (index < message.length) {
+      target.textContent += message.charAt(index);
+      index++;
+      setTimeout(typeChar, 60); // typing speed
+    }
+  }
+
+  window.addEventListener("load", typeChar);
 </script>
 
   </body>
